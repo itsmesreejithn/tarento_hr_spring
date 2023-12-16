@@ -17,4 +17,8 @@ public class NewJoineeService {
         return newJoineeRepository.findAll();
     }
 
+    public void writeNewJoinee(NewJoinee newJoinee) {
+        newJoineeRepository.save(newJoinee);
+    }
+
 }
