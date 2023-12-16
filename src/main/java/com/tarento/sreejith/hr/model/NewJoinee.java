@@ -1,6 +1,9 @@
 package com.tarento.sreejith.hr.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +13,9 @@ import java.math.BigInteger;
 @Setter
 @Getter
 public class NewJoinee {
-    private int empId;
+   @Id
+   @GeneratedValue(strategy = GenerationType.AUTO)
+   private int empId;
     private String empName;
     private String empAddress;
     private BigInteger empPhone;
