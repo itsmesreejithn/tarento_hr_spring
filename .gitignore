@@ -31,3 +31,37 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+
+# Logs
+hr-client/logs
+hr-client/*.log
+hr-client/npm-debug.log*
+hr-client/yarn-debug.log*
+hr-client/yarn-error.log*
+hr-client/pnpm-debug.log*
+hr-client/lerna-debug.log*
+
+hr-client/node_modules
+hr-client/dist
+hr-client/dist-ssr
+hr-client/*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+
+
+
+
+
