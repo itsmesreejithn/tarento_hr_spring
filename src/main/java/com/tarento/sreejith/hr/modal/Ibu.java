@@ -1,6 +1,5 @@
-package com.tarento.sreejith.hr.model;
+package com.tarento.sreejith.hr.modal;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;

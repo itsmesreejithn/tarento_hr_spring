@@ -1,9 +1,6 @@
-package com.tarento.sreejith.hr.model;
+package com.tarento.sreejith.hr.modal;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,23 +14,25 @@ public class NewJoinee {
    @GeneratedValue(strategy = GenerationType.AUTO)
    private int empId;
     private String empName;
-    private String empAddress;
+    private String empHome;
     private BigInteger empPhone;
     private String empEmail;
     private String empHobbies;
     private String empQuote;
     private String empWwib;
-    private int empRole;
     private int empExperience;
     private String empCoreSkills;
-    private int empIbu;
+
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "ibu_id")
+    private Ibu ibu;
+
     public NewJoinee() {
 
     }
 
-    public NewJoinee(int empId, String empName, String empAddress) {
-        this.empId = empId;
-        this.empName = empName;
-        this.empAddress = empAddress;
-    }
 }

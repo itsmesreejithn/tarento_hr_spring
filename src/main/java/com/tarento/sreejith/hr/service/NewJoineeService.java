@@ -1,6 +1,6 @@
 package com.tarento.sreejith.hr.service;
 
-import com.tarento.sreejith.hr.model.NewJoinee;
+import com.tarento.sreejith.hr.modal.NewJoinee;
 import com.tarento.sreejith.hr.repository.NewJoineeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
