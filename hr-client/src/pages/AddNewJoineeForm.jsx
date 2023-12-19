@@ -1,4 +1,5 @@
 import { Card, Container, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const AddNewJoineeForm = () => {
   return (
@@ -25,6 +26,8 @@ const AddNewJoineeForm = () => {
               className="my-3"
             />
             <Form.Control type="text" placeholder="Your favourite quote" className="my-3" />
+
+            <Link to="/deck" className="btn btn-primary">View The deck</Link>
           </Card.Body>
         </Card>
       </Form>

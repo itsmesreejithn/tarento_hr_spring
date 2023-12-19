@@ -16,7 +16,6 @@ public class Ibu {
     private String ibuManager;
 
     public Ibu() {}
-
     public Ibu(int ibuId, String ibuName, String ibuManager) {
         this.ibuId = ibuId;
         this.ibuName = ibuName;

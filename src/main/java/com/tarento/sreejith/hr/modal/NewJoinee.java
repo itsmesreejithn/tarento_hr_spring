@@ -31,8 +31,22 @@ public class NewJoinee {
     @JoinColumn(name = "ibu_id")
     private Ibu ibu;
 
-    public NewJoinee() {
+ public NewJoinee() {
 
     }
 
+ public NewJoinee(int empId, String empName, String empHome, BigInteger empPhone, String empEmail, String empHobbies, String empQuote, String empWwib, int empExperience, String empCoreSkills, Role role, Ibu ibu) {
+  this.empId = empId;
+  this.empName = empName;
+  this.empHome = empHome;
+  this.empPhone = empPhone;
+  this.empEmail = empEmail;
+  this.empHobbies = empHobbies;
+  this.empQuote = empQuote;
+  this.empWwib = empWwib;
+  this.empExperience = empExperience;
+  this.empCoreSkills = empCoreSkills;
+  this.role = role;
+  this.ibu = ibu;
+ }
 }
