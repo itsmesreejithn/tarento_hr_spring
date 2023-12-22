@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/newjoinee")
+@CrossOrigin(origins = "*")
 public class NewJoineeController {
 
     @Autowired
@@ -25,7 +26,6 @@ public class NewJoineeController {
         return newJoineeService.readOneNewJoinee(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/post")
     public void postNewJoinee(@RequestBody NewJoinee newJoinee) {
         System.out.println(newJoinee.getEmpName());

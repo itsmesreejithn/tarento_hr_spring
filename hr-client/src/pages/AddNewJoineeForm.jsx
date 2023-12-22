@@ -117,6 +117,8 @@ const AddNewJoineeForm = () => {
         console.log(response.data);
       })
       .catch((error) => console.log(error));
+
+    alert("Data submited successfully");
   };
 
   return (
