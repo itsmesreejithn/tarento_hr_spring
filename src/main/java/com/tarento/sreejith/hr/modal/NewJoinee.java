@@ -11,7 +11,6 @@ import java.math.BigInteger;
 @Getter
 public class NewJoinee {
    @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
    private int empId;
     private String empName;
     private String empHome;

@@ -28,6 +28,10 @@ public class NewJoineeService {
         return newJoineeRepository.findAll();
     }
 
+    public Optional<NewJoinee> readOneNewJoinee(int id) {
+        return newJoineeRepository.findById(id);
+    }
+
     public void writeNewJoinee(NewJoinee newJoinee) {
         newJoineeRepository.save(newJoinee);
     }

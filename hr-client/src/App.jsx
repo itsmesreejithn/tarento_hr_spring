@@ -6,14 +6,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (
-    <div>
+    <>
       <BrowserRouter>
         <Routes>
           <Route index element={<AddNewJoineeForm />} />
           <Route path="deck" element={<ViewDeck />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 };
 

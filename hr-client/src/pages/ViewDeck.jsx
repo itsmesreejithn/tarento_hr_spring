@@ -1,13 +1,12 @@
-import axios from "axios";
-import React, { useEffect } from "react";
+import { Container } from "react-bootstrap";
+import ListNewJoinee from "../components/ListNewJoinee";
 
 const ViewDeck = () => {
-  useEffect(() => {
-    axios.get("http://localhost:8081/newjoinee/").then((response) => {
-      console.log(response.data[0]);
-    });
-  });
-  return <div>ViewDeck</div>;
+  return (
+    <Container fluid className="py-5 h-100">
+      <ListNewJoinee />
+    </Container>
+  );
 };
 
 export default ViewDeck;
