@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Card, Col, Form, ListGroup, Row } from "react-bootstrap";
 import Deck from "./Deck";
+import "../App.css";
 
 const ListNewJoinee = () => {
   const [newJoinees, setNewJoinnes] = useState([]);
@@ -18,15 +19,23 @@ const ListNewJoinee = () => {
     console.log(event.target.value);
     setVarient(parseInt(event.target.value, 10));
   };
+
+  const [hoveredItemId, setHoveredItemId] = useState(null);
+
   return (
     <Row className="h-100">
-      <Col md={3}>
+      <Col md={3} className="bg-dark bg-gradient">
+        <h1 className="text-center text-white mt-2">Employees</h1>
         <ListGroup as="ol">
           {newJoinees.map((newJoinee) => (
             <ListGroup.Item
               key={newJoinee.empId}
               as="li"
-              className="text-center fw-bold m-2 bg-light text-secondary"
+              className={`text-center fw-bold m-2 bg-light text-secondary rounded ${
+                hoveredItemId === newJoinee.empId ? "hovered" : ""
+              }`}
+              onMouseOver={() => setHoveredItemId(newJoinee.empId)}
+              onMouseOut={() => setHoveredItemId(null)}
               onClick={() => setNewJoineeId(parseInt(newJoinee.empId))}
             >
               Employee Id:{newJoinee.empId} <br />

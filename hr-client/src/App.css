@@ -10,3 +10,8 @@
   bottom: 0;
   top: 0;
 }
+
+.hovered {
+  transition: transform 0.05s;
+  transform: scale(1.1);
+}

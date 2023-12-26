@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../App.css";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Deck = ({ newJoineeId, varient }) => {
   const [newJoinee, setNewJoinee] = useState({});
@@ -14,7 +15,7 @@ const Deck = ({ newJoineeId, varient }) => {
   const [quoteStyle, setQuoteStyle] = useState("");
   const [wwibStyle, setWwibStyle] = useState("");
   const [rowStyle, setRowStyle] = useState(
-    "row justify-content-center text-center fw-bold  fs-5 text-secondary"
+    "row justify-content-center text-center fw-bold  fs-5 text-white"
   );
   useEffect(() => {
     if (newJoineeId < 0) {
@@ -30,6 +31,9 @@ const Deck = ({ newJoineeId, varient }) => {
           console.error(error);
         });
       if (varient == 1) {
+        setRowStyle(
+          "row justify-content-center text-center fw-bold fs-5 bg-info bg-gradient"
+        );
         setHomeTownStyle("bg-primary-subtle rounded col-md-4 my-2 mx-1 w-25");
         setNamePostStyle("bg-primary-subtle rounded col-md-2 my-2 mx-1");
         setManagerSkillIbuStyle(
@@ -41,22 +45,30 @@ const Deck = ({ newJoineeId, varient }) => {
         setQuoteStyle("bg-primary-subtle rounded col-md-4 my-2 mx-1");
         setWwibStyle("bg-primary-subtle rounded col-md-4 my-2 mx-1 w-25");
       } else if (varient == 2) {
-        setHomeTownStyle("bg-success-subtle rounded col-md-6 my-2 mx-1");
-        setNamePostStyle("bg-success-subtle rounded col-md-12 my-2 mx-1");
-        setManagerSkillIbuStyle(
-          "bg-success-subtle rounded col-md-12 my-2 mx-1"
+        setRowStyle(
+          "row justify-content-center text-center fw-bold fs-5 bg-success-subtle text-white"
         );
-        setExperienceStyle("bg-success-subtle rounded col-md-6 my-2 mx-1");
-        setHobbiesStyle("bg-success-subtle rounded col-md-12 my-2 mx-1");
-        setContactStyle("bg-success-subtle rounded col-md-4 my-2 mx-1");
-        setQuoteStyle("bg-success-subtle rounded col-md-4 my-2 mx-1");
-        setWwibStyle("bg-success-subtle rounded col-md-4 my-2 mx-1");
+        setHomeTownStyle("bg-success bg-opacity-50 rounded col-md-6 my-2 mx-1");
+        setNamePostStyle("bg-success bg-opacity-50 rounded col-md-6 my-2 mx-1");
+        setManagerSkillIbuStyle(
+          "bg-success bg-opacity-50 rounded col-md-6 my-2 mx-1"
+        );
+        setExperienceStyle(
+          "bg-success bg-opacity-50 rounded col-md-6 my-2 mx-1"
+        );
+        setHobbiesStyle("bg-success bg-opacity-50 rounded col-md-6 my-2 mx-1");
+        setContactStyle("bg-success bg-opacity-50 rounded col-md-4 my-2 mx-1");
+        setQuoteStyle("bg-success bg-opacity-50 rounded col-md-4 my-2 mx-1");
+        setWwibStyle("bg-success bg-opacity-50 rounded col-md-4 my-2 mx-1");
       } else {
-        setHomeTownStyle("bg-dark-subtle rounded col-md-12 my-2 mx-1");
+        setRowStyle(
+          "row justify-content-center text-center fw-bold fs-5 bg-black bg-gradient"
+        );
+        setHomeTownStyle("bg-dark-subtle rounded col-md-3 my-2 mx-1");
         setNamePostStyle("bg-dark-subtle rounded col-md-6 my-2 mx-1");
         setManagerSkillIbuStyle("bg-dark-subtle rounded col-md-6 my-2 mx-1");
-        setExperienceStyle("bg-dark-subtle rounded col-md-6 my-2 mx-1");
-        setHobbiesStyle("bg-dark-subtle rounded col-md-12 my-2 mx-1");
+        setExperienceStyle("bg-dark-subtle rounded col-md-3 my-2 mx-1");
+        setHobbiesStyle("bg-dark-subtle rounded col-md-6 my-2 mx-1");
         setContactStyle("bg-dark-subtle rounded col-md-4 my-2 mx-1");
         setQuoteStyle("bg-dark-subtle rounded col-md-4 my-2 mx-1");
         setWwibStyle("bg-dark-subtle rounded col-md-4 my-2 mx-1");
@@ -69,7 +81,7 @@ const Deck = ({ newJoineeId, varient }) => {
       {newJoineeId < 0 ? (
         <>no empoyee selected</>
       ) : (
-        <Container>
+        <Container className="mt-2">
           <div className={rowStyle}>
             <div className={homeTownStyle}>
               Hometown

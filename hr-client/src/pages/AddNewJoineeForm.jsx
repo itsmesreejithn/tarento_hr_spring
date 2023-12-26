@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Card, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 const AddNewJoineeForm = () => {
   const [roles, setRoles] = useState([]);
@@ -113,120 +113,126 @@ const AddNewJoineeForm = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         console.log(response.data);
+        alert("Data submited successfully");
       })
-      .catch((error) => console.log(error));
-
-    alert("Data submited successfully");
+      .catch((error) => {
+        console.log(error);
+        alert("Please insert data to be inserted");
+      });
   };
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit}>
-        <Card className="my-5">
-          <Card.Body>
-            <Form.Control
-              type="number"
-              placeholder="Enter employee id"
-              className="my-3"
-              onChange={handleEmpIdChange}
-            />
-            <Form.Control
-              type="text"
-              placeholder="Enter employee name"
-              className="my-3"
-              onChange={handleEmpNameChange}
-            />
-            <Form.Control
-              type="email"
-              placeholder="Enter employee email"
-              className="my-3"
-              onChange={handleEmpEmaliChange}
-            />
-            <Form.Control
-              type="number"
-              placeholder="Enter emplyee phone number"
-              className="my-3"
-              onChange={handleEmpPhoneChange}
-            />
-            <Form.Control
-              type="text"
-              placeholder="Enter employee hometown"
-              className="my-3"
-              onChange={handleEmpHometownChange}
-            />
-            <Form.Control
-              type="number"
-              placeholder="Enter emloyee experience"
-              className="my-3"
-              onChange={handleEmpExperinceChange}
-            />
-            <Form.Control
-              type="text"
-              placeholder="What would you become if I was not this"
-              className="my-3"
-              onChange={handleEmpWwibChange}
-            />
-            <Form.Control
-              type="text"
-              placeholder="Hobbies"
-              className="my-3"
-              onChange={handleEmpHobbiesChange}
-            />
-            <Form.Control
-              type="text"
-              placeholder="Your favourite quote"
-              className="my-3"
-              onChange={handleEmpQuoteChange}
-            />
-            <Form.Control
-              type="text"
-              placeholder="Core Skills"
-              className="my-3"
-              onChange={handleEmpCoreSkillsChange}
-            />
-            <Form.Select
-              aria-label="roleSelect"
-              className="my-3"
-              onChange={handleEmpRoleChange}
-            >
-              <option value={-1}>Please select the role</option>
-              {roles.map((role, index) => (
-                <option key={index} value={role.roleId}>
-                  {role.roleName}
-                </option>
-              ))}
-            </Form.Select>
-            <Form.Select
-              aria-label="ibuSelector"
-              className="my-3"
-              onChange={selectMangerChange}
-            >
-              <option value={-1}>Please select the Ibu</option>
-              {ibus.map((ibu, index) => (
-                <option key={index} value={ibu.ibuId}>
-                  {ibu.ibuName}
-                </option>
-              ))}
-            </Form.Select>
-            <Form.Control
-              type="text"
-              placeholder="Manager"
-              value={manager}
-              readOnly
-              className="my-3"
-            />
-            <Button variant="primary" type="submit" className="mx-4">
-              Submit
-            </Button>
-            <Link to="/deck" className="btn btn-primary">
-              View The deck
-            </Link>
-          </Card.Body>
-        </Card>
-      </Form>
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <h1 className="text-center mt-2">Tell about yourself</h1>
+        <Form onSubmit={handleSubmit}>
+          <Card className="my-5">
+            <Card.Body>
+              <Form.Control
+                type="number"
+                placeholder="Enter employee id"
+                className="my-3"
+                onChange={handleEmpIdChange}
+              />
+              <Form.Control
+                type="text"
+                placeholder="Enter employee name"
+                className="my-3"
+                onChange={handleEmpNameChange}
+              />
+              <Form.Control
+                type="email"
+                placeholder="Enter employee email"
+                className="my-3"
+                onChange={handleEmpEmaliChange}
+              />
+              <Form.Control
+                type="number"
+                placeholder="Enter emplyee phone number"
+                className="my-3"
+                onChange={handleEmpPhoneChange}
+              />
+              <Form.Control
+                type="text"
+                placeholder="Enter employee hometown"
+                className="my-3"
+                onChange={handleEmpHometownChange}
+              />
+              <Form.Control
+                type="number"
+                placeholder="Enter emloyee experience"
+                className="my-3"
+                onChange={handleEmpExperinceChange}
+              />
+              <Form.Control
+                type="text"
+                placeholder="What would you become if I was not this"
+                className="my-3"
+                onChange={handleEmpWwibChange}
+              />
+              <Form.Control
+                type="text"
+                placeholder="Hobbies"
+                className="my-3"
+                onChange={handleEmpHobbiesChange}
+              />
+              <Form.Control
+                type="text"
+                placeholder="Your favourite quote"
+                className="my-3"
+                onChange={handleEmpQuoteChange}
+              />
+              <Form.Control
+                type="text"
+                placeholder="Core Skills"
+                className="my-3"
+                onChange={handleEmpCoreSkillsChange}
+              />
+              <Form.Select
+                aria-label="roleSelect"
+                className="my-3"
+                onChange={handleEmpRoleChange}
+              >
+                <option value={-1}>Please select the role</option>
+                {roles.map((role, index) => (
+                  <option key={index} value={role.roleId}>
+                    {role.roleName}
+                  </option>
+                ))}
+              </Form.Select>
+              <Form.Select
+                aria-label="ibuSelector"
+                className="my-3"
+                onChange={selectMangerChange}
+              >
+                <option value={-1}>Please select the Ibu</option>
+                {ibus.map((ibu, index) => (
+                  <option key={index} value={ibu.ibuId}>
+                    {ibu.ibuName}
+                  </option>
+                ))}
+              </Form.Select>
+              <Form.Control
+                type="text"
+                placeholder="Manager"
+                value={manager}
+                readOnly
+                className="my-3"
+              />
+              <Button
+                variant="outline-primary"
+                type="submit"
+                className="mx-auto"
+              >
+                Submit
+              </Button>
+            </Card.Body>
+          </Card>
+        </Form>
+      </Container>
+    </>
   );
 };
 
