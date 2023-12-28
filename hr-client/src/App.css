@@ -15,3 +15,26 @@
   transition: transform 0.05s;
   transform: scale(1.1);
 }
+
+.varient1 {
+  background: radial-gradient(circle, #00ffff, #e0ffff);
+  position: relative;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+
+.varient2 {
+  background: radial-gradient(circle, #333333, #000000);
+  position: relative;
+  justify-content: space-around;
+  border-radius: 10px;
+  color: white;
+}
+
+.varient3 {
+  background: radial-gradient(circle, #ffffff, #00008b);
+  position: relative;
+  justify-content: space-around;
+  border-radius: 10px;
+  color: white;
+}

@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Card, Col, Form, ListGroup, Row } from "react-bootstrap";
+import { Card, Col, Form, ListGroup, Row, Button } from "react-bootstrap";
 import Deck from "./Deck";
 import "../App.css";
+import html2canvas from "html2canvas";
+import downloadjs from "downloadjs";
 
 const ListNewJoinee = () => {
   const [newJoinees, setNewJoinnes] = useState([]);
@@ -16,11 +18,16 @@ const ListNewJoinee = () => {
   }, []);
 
   const handleChange = (event) => {
-    console.log(event.target.value);
-    setVarient(parseInt(event.target.value, 10));
+    setVarient(event.target.value);
   };
 
   const [hoveredItemId, setHoveredItemId] = useState(null);
+
+  const handleDownload = async () => {
+    const canvas = await html2canvas(document.getElementById("temp"));
+    const dataURL = canvas.toDataURL("image/png");
+    downloadjs(dataURL, `${newJoineeId}`, "image/png");
+  };
 
   return (
     <Row className="h-100">
@@ -43,12 +50,15 @@ const ListNewJoinee = () => {
             </ListGroup.Item>
           ))}
         </ListGroup>
+        <Button variant="outline-primary" onClick={handleDownload}>
+          Download Deck
+        </Button>
       </Col>
       <Col md={9}>
         <Card>
           <Card.Body>
             <Form.Select aria-label="select varient" onChange={handleChange}>
-              <option value="0">select the theme</option>
+              <option value="0">Select a theme</option>
               <option value="1">varient 1</option>
               <option value="2">varient 2</option>
               <option value="3">varient 3</option>

@@ -6,7 +6,7 @@ const ViewDeck = () => {
   return (
     <>
       <Header />
-      <Container fluid className="py-5 h-100">
+      <Container fluid className="py-5 h-100 bg-black bg-gradient">
         <ListNewJoinee />
       </Container>
     </>
