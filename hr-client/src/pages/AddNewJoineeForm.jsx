@@ -7,7 +7,7 @@ const AddNewJoineeForm = () => {
   const [roles, setRoles] = useState([]);
   const [ibus, setIbu] = useState([]);
   const [manager, setManager] = useState("");
-
+  const [empImage, setEmpImage] = useState(null);
   const [empId, setEmpId] = useState(null);
   const [empName, setEmpName] = useState("");
   const [empEmail, setEmpEmail] = useState("");
@@ -53,6 +53,10 @@ const AddNewJoineeForm = () => {
   };
   const handleEmpCoreSkillsChange = (e) => {
     setEmpCoreSkills(e.target.value);
+  };
+  const handleImageInputChange = (e) => {
+    console.log(e.target.files[0]);
+    setEmpImage(e.target.files[0]);
   };
 
   useEffect(() => {
@@ -104,8 +108,6 @@ const AddNewJoineeForm = () => {
       role: { roleId: empRole },
     };
 
-    console.log(formData);
-
     axios
       .post("http://localhost:8081/newjoinee/post", formData, {
         headers: {
@@ -120,6 +122,10 @@ const AddNewJoineeForm = () => {
         console.log(error);
         alert("Please insert data to be inserted");
       });
+
+    const formImage = new FormData();
+    formImage.append("empImageId", empId);
+    formImage.append("file", empImage);
   };
 
   return (
@@ -221,6 +227,12 @@ const AddNewJoineeForm = () => {
                 readOnly
                 className="my-3"
               />
+
+              <Form.Group className="my-3">
+                <Form.Label>Insert your picture</Form.Label>
+                <Form.Control type="file" onChange={handleImageInputChange} />
+              </Form.Group>
+
               <Button
                 variant="outline-primary"
                 type="submit"
