@@ -3,6 +3,7 @@ package com.tarento.sreejith.hr.controller;
 import com.tarento.sreejith.hr.modal.NewJoinee;
 import com.tarento.sreejith.hr.service.NewJoineeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
