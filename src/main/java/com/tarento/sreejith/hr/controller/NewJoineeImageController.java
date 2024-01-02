@@ -11,6 +11,7 @@ import java.util.zip.DataFormatException;
 
 @RestController
 @RequestMapping("/newjoinee/images")
+@CrossOrigin(origins = "*")
 public class NewJoineeImageController {
     @Autowired
     NewJoineeImageService newJoineeImageService;

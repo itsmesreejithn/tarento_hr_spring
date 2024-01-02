@@ -27,10 +27,6 @@ public class NewJoinee {
     private int empExperience;
     private String empCoreSkills;
 
-    @OneToOne
-    @JoinColumn(name = "image_id")
-    private NewJoineeImage newJoineeImage;
-
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;

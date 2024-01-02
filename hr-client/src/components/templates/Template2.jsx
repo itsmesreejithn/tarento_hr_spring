@@ -1,11 +1,32 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Row, Col, Image } from "react-bootstrap";
 
 const Template2 = ({ newJoinee }) => {
+  const [src, setSrc] = useState("");
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8081/newjoinee/images/download/${newJoinee.empId}`,
+        {
+          responseType: "blob",
+        }
+      )
+      .then((response) => {
+        let imageUrl = URL.createObjectURL(response.data);
+        setSrc(imageUrl);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        setSrc("");
+        console.error(error);
+      });
+  }, [newJoinee.empId]);
   return (
     <Row className="varient2 fst-italic">
       <Row>
         <Col className="rounded-pill m-1 p-5 bg-black bg-gradient border border-white text-center">
+          <Image src={src} alt={newJoinee.empName} roundedCircle width="10%" />
           <p className="fs-2 fw-bolder">{newJoinee.empName}</p>
           <p>{newJoinee.role && newJoinee.role.roleName}</p>
         </Col>

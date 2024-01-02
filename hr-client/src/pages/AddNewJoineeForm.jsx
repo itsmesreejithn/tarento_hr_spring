@@ -124,8 +124,24 @@ const AddNewJoineeForm = () => {
       });
 
     const formImage = new FormData();
-    formImage.append("empImageId", empId);
     formImage.append("file", empImage);
+
+    axios
+      .post(
+        `http://localhost:8081/newjoinee/images/upload/${empId}`,
+        formImage,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
