@@ -245,7 +245,7 @@ const AddNewJoineeForm = () => {
               />
 
               <Form.Group className="my-3">
-                <Form.Label>Insert your picture</Form.Label>
+                <Form.Label>Insert your picture (max size 50kb)</Form.Label>
                 <Form.Control type="file" onChange={handleImageInputChange} />
               </Form.Group>
 
