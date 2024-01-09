@@ -31,12 +31,9 @@ public class NewJoineeImageService {
         return optionalNewJoineeImage.map(image -> {
             try {
                 byte[] imageData = ImageUtils.decompressImage(image.getEmpImage());
-                HttpHeaders headers = new HttpHeaders();
-                headers.setContentType(MediaType.IMAGE_JPEG); // Set the appropriate content type
-                return ResponseEntity.ok().headers(headers).body(imageData);
+                return ResponseEntity.ok().body(imageData);
             } catch (IOException exception) {
-                // Log the exception or throw a custom exception
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to download image");
             }
         }).orElse(ResponseEntity.notFound().build());
     }
